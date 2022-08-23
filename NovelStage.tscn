@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NovelInterface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actor.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.472527, 1 )
+colors = PoolColorArray( 0.78125, 1, 0, 1, 0.078125, 1, 0, 1, 0, 0.296875, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+
+[node name="NovelStage" type="Node"]
+
+[node name="TestBG" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 16, 9.375 )
+texture = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Actor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 864, 376 )
+scale = Vector2( 3, 3 )
+
+[node name="NovelInterface" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
