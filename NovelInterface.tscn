@@ -49,19 +49,22 @@ margin_left = 8.0
 margin_top = 488.0
 margin_right = 1016.0
 margin_bottom = 588.0
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 4.0
+margin_top = 24.0
 margin_right = -4.0
 margin_bottom = -4.0
 text = "Test Text!
 How do you do, fellow World?"
+
+[node name="NameLabel" type="Label" parent="Panel"]
+margin_left = 8.0
+margin_right = 248.0
+margin_bottom = 24.0
+text = "NAME"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_Button_pressed"]
