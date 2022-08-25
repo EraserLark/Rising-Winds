@@ -1,12 +1,17 @@
-extends Control
+extends Node
 
-onready var choiceButtons = $CenterContainer/VBoxContainer
-onready var textBox = $Panel/RichTextLabel
-onready var nameLabel = $Panel/NameLabel
+onready var choiceButtons = $NovelInterface/CenterContainer/VBoxContainer
+onready var textBox = $NovelInterface/Panel/RichTextLabel
+onready var nameLabel = $NovelInterface/Panel/NameLabel
+onready var actor1 = $Actor
 
 #Dialogue Dictionary Test
-var masterDict = {1: {"Name": "Tony", "Dialogue": "Howdy howdy."},
-2: {"Name": "Bismelda", "Dialogue": "Who are you?"}}
+onready var masterDict = {
+1: {"Name": actor1.actorName, 	"Face": "Happy", 	"Dialogue": "Howdy howdy."},
+2: {"Name": "Bismelda", 		"Face": "Angry", 	"Dialogue": "Who are you?"},
+3: {"Name": actor1.actorName,	"Face": "Normal", 	"Dialogue": "Sorry to bother you, name's " + actor1.actorName},
+4: {"Name": "Bismelda", 		"Face": "Sad", 		"Dialogue": "No worries. Been a long day."}
+}
 var dictCount : int = 1
 var masterDictSize = 0
 
@@ -28,6 +33,7 @@ func _process(delta):
 
 func displayMessage(dict):
 	nameLabel.text = dict["Name"]
+	actor1.changeFace(dict["Face"])
 	changeText(dict["Dialogue"])
 
 func changeText(newText):
