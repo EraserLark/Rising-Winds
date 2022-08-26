@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://TestAssets/TestFacesData.gd" type="Script" id=1]
+[ext_resource path="res://TestAssets/Happy.png" type="Texture" id=2]
+[ext_resource path="res://TestAssets/Normal.png" type="Texture" id=3]
+[ext_resource path="res://TestAssets/Angry.png" type="Texture" id=4]
+[ext_resource path="res://TestAssets/Sad.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 1 )
+characterName = "Jumpin' Jimmy"
+charFaces = {
+"Angry": ExtResource( 4 ),
+"Happy": ExtResource( 2 ),
+"Normal": ExtResource( 3 ),
+"Sad": ExtResource( 5 )
+}
