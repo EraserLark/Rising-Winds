@@ -12,10 +12,11 @@ func _ready():
 #Creates new buttons corresponding to the choice data sent in
 func newChoice(choices):
 	clearChoices()
-	for i in choices:
+	for choice in choices:
+	#for each 'object' in 'array'
 		var button = Button.new()
-		var choiceText = choices[i]["Text"]
-		var choiceRoute = choices[i]["Route"]
+		var choiceText = choice["Text"]
+		var choiceRoute = choice["Route"]
 		button.text = choiceText
 		button.connect("pressed", self, "_button_pressed", [choiceRoute])
 		choiceButtons.add_child(button)

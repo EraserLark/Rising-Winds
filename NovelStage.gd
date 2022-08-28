@@ -8,36 +8,19 @@ onready var actor2 = $Actor2
 onready var animPlayer = $AnimationPlayer
 var actorArray
 
-#Dialogue Dictionary Test
-onready var masterDict = {
-1: {"Actor": 0, "Name": actor0.actorName, 	"Face": "Happy", 	"Dialogue": "Howdy howdy.", "Anim": null},
-2: {"Actor": 1, "Name": actor1.actorName, 	"Face": "Angry", 	"Dialogue": "Who are you?", "Anim": null},
-3: {"Actor": 0, "Name": actor0.actorName,	"Face": "Normal", 	"Dialogue": "Sorry to bother you, name's " + actor0.actorName, "Anim": null},
-4: {"Actor": 1, "Name": actor1.actorName, 	"Face": "Sad", 		"Dialogue": "No worries. Been a long day.", "Anim": null },
-5: {"Actor": 2, "Name": actor2.actorName, 	"Face": "Happy", 	"Dialogue": "Hee hee! I'm here too!", "Anim": "testPeekDown"}
-}
-var dictCount : int = 1
+export (String) var jsonDict
+var convos
+
+var dictCount : int = 0
 var route
 var routeSize = 0
 
-onready var jimmyDict = {
-1: {"Actor": 2, "Name": actor2.actorName, 	"Face": "Happy", 	"Dialogue": "That's my name! Don't wear it out!", "Anim": null},
-2: {"Actor": 1, "Name": actor1.actorName, 	"Face": "Angry", 	"Dialogue": "Get off the ceiling!", "Anim": null},
-3: {"Actor": 0, "Name": actor0.actorName,	"Face": "Normal", 	"Dialogue": "Now, now " + actor1.actorName + ". It's okay to have fun.", "Anim": null}
-}
-
-#Choice Dictionary Test
-onready var choiceDict = {
-0: {"Text": actor0.actorName, "Route": masterDict},
-1: {"Text": actor1.actorName, "Route": masterDict},
-2: {"Text": actor2.actorName, "Route": jimmyDict}
-}
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	convos = loadDialogueFile(jsonDict)
 	novInterface.connect("choice_selected", self, "nextChoice")
 	
-	route = masterDict
+	route = convos["masterDict"]
 	routeStart(route)
 
 func routeStart(_route):
@@ -48,16 +31,26 @@ func routeStart(_route):
 	routeSize = _route.size()
 	nextLine(_route[dictCount])
 
+#https://www.youtube.com/watch?v=8HOmLNuuccs&t=178s
+func loadDialogueFile(file_path):
+	var file = File.new()
+	assert(file.file_exists(file_path))
+	
+	file.open(file_path, file.READ)
+	var convos = parse_json(file.get_as_text())
+	assert(convos.size() > 0)
+	return convos
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
+		dictCount += 1
 		if dictCount < routeSize:
-			dictCount += 1
 			nextLine(route[dictCount])
 		else:
 			novInterface.textboxReveal(false)
 			novInterface.buttonReveal(true)
-			novInterface.newChoice(choiceDict)
+			novInterface.newChoice(convos["choiceDict"])
 
 func nextLine(dict):
 	var actor = actorArray[dict["Actor"]]
@@ -69,10 +62,6 @@ func nextLine(dict):
 	novInterface.changeText(dict["Dialogue"])
 
 func nextChoice(nextRoute):
-	route = nextRoute
-	dictCount = 1
-	routeStart(nextRoute)
-
-#Signal disconnected, moved script
-#func _on_Button_pressed():
-#	changeText("Button Pressed!")
+	route = convos[nextRoute]
+	dictCount = 0
+	routeStart(route)

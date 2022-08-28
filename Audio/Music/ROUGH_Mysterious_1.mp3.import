@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ROUGH_Mysterious_1.mp3-eac6de66db83438401ddfad544a5b00c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/ROUGH_Mysterious_1.mp3"
+dest_files=[ "res://.import/ROUGH_Mysterious_1.mp3-eac6de66db83438401ddfad544a5b00c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

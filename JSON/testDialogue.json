@@ -1,0 +1,25 @@
+{
+    "masterDict":
+    [
+        {"Actor": 0, "Name": "Mikey", 	        "Face": "Happy", 	"Dialogue": "Howdy howdy.", "Anim": null},
+        {"Actor": 1, "Name": "Bernise", 	    "Face": "Angry", 	"Dialogue": "Who are you?", "Anim": null},
+        {"Actor": 0, "Name": "Mikey",	        "Face": "Normal", 	"Dialogue": "Sorry to bother you, name's Mikey", "Anim": null},
+        {"Actor": 1, "Name": "Bernise", 	    "Face": "Sad", 		"Dialogue": "No worries. Been a long day.", "Anim": null },
+        {"Actor": 2, "Name": "Jumpin' Jimmy", 	"Face": "Happy", 	"Dialogue": "Hee hee! I'm here too!", "Anim": "testPeekDown"}
+    ]
+    ,
+    "jimmyDict":
+    [
+        {"Actor": 2, "Name": "Jumpin' Jimmy", 	"Face": "Happy", 	"Dialogue": "That's my name! Don't wear it out!", "Anim": null},
+        {"Actor": 1, "Name": "Bernise", 	    "Face": "Angry", 	"Dialogue": "Get off the ceiling!", "Anim": null},
+        {"Actor": 0, "Name": "Mikey",	        "Face": "Normal", 	"Dialogue": "Now, now Bernise. It's okay to have fun.", "Anim": null}
+    ]
+    ,
+    "choiceDict":
+    [
+        {"Text": "Mikey",          "Route": "masterDict"},
+        {"Text": "Bernise",         "Route": "masterDict"},
+        {"Text": "Jumpin' Jimmy",   "Route": "jimmyDict"},
+        {"Text": "All of the above","Route": "masterDict"}
+    ]
+}
