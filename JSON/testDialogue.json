@@ -22,4 +22,11 @@
         {"Text": "Jumpin' Jimmy",   "Route": "jimmyDict"},
         {"Text": "All of the above","Route": "masterDict"}
     ]
+    ,
+    "actorDict": 
+    [
+        {"Name": "Actor0", "Position": "Vector2 (152, 376)", "Info": "res://TestAssets/TestActor.tres"},
+        {"Name": "Actor1", "Position": "Vector2 (872, 376)", "Info": "res://TestAssets/TestActor2.tres"},
+        {"Name": "Actor2", "Position": "Vector2 (512, 56)", "Info": "res://TestAssets/TestActor3.tres"}
+    ]
 }
