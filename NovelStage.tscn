@@ -18,7 +18,7 @@ gradient = SubResource( 1 )
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Actor2/Sprite:position")
+tracks/0/path = NodePath("Cast/Actor2/Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Actor2:position")
+tracks/1/path = NodePath("Cast/Actor2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -45,7 +45,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "testPeekDown"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Actor2/Sprite:position")
+tracks/0/path = NodePath("Cast/Actor2/Sprite:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "values": [ Vector2( -17, 0 ), Vector2( 20, 0 ), Vector2( -15, 0 ), Vector2( 13, 0 ), Vector2( -10, 0 ), Vector2( 8, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Actor2:position")
+tracks/1/path = NodePath("Cast/Actor2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -71,7 +71,7 @@ tracks/1/keys = {
 
 [node name="NovelStage" type="Node"]
 script = ExtResource( 4 )
-jsonDict = "res://JSON/testDialogue.json"
+jsonDialogue = "res://JSON/testDialogue.json"
 
 [node name="TestBG" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
@@ -81,17 +81,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Actor0" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 376 )
+[node name="Cast" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Actor0" parent="Cast" instance=ExtResource( 2 )]
+position = Vector2( 152, 376 )
 scale = Vector2( 3, 3 )
 actorInfo = ExtResource( 3 )
 
-[node name="Actor1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 896, 376 )
+[node name="Actor1" parent="Cast" instance=ExtResource( 2 )]
+position = Vector2( 872, 376 )
 scale = Vector2( 3, 3 )
 actorInfo = ExtResource( 5 )
 
-[node name="Actor2" parent="." instance=ExtResource( 2 )]
+[node name="Actor2" parent="Cast" instance=ExtResource( 2 )]
 position = Vector2( 512, 56 )
 rotation = 3.14159
 scale = Vector2( 3, 3 )

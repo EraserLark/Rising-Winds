@@ -17,7 +17,7 @@
     ,
     "choiceDict":
     [
-        {"Text": "Mikey",          "Route": "masterDict"},
+        {"Text": "Mikey",           "Route": "masterDict"},
         {"Text": "Bernise",         "Route": "masterDict"},
         {"Text": "Jumpin' Jimmy",   "Route": "jimmyDict"},
         {"Text": "All of the above","Route": "masterDict"}

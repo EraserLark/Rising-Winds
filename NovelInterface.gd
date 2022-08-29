@@ -10,8 +10,11 @@ func _ready():
 	pass
 
 #Creates new buttons corresponding to the choice data sent in
-func newChoice(choices):
+func newChoice(choices, TBshow):
 	clearChoices()
+	buttonReveal(true)
+	textboxReveal(TBshow)
+	
 	for choice in choices:
 	#for each 'object' in 'array'
 		var button = Button.new()
@@ -31,6 +34,7 @@ func clearChoices():
 	for n in choiceButtons.get_children():
 		choiceButtons.remove_child(n)
 		n.queue_free()
+		#Disconnect button signals?
 
 func changeName(name):
 	nameLabel.text = name
