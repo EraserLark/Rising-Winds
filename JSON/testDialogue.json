@@ -1,4 +1,4 @@
-{
+{   
     "masterDict":
     [
         {"Actor": 0, "Name": "Mikey", 	        "Face": "Happy", 	"Dialogue": "Howdy howdy.", "Anim": null},
@@ -25,8 +25,13 @@
     ,
     "actorDict": 
     [
-        {"Name": "Actor0", "Position": "Vector2 (152, 376)", "Info": "res://TestAssets/TestActor.tres"},
-        {"Name": "Actor1", "Position": "Vector2 (872, 376)", "Info": "res://TestAssets/TestActor2.tres"},
-        {"Name": "Actor2", "Position": "Vector2 (512, 56)", "Info": "res://TestAssets/TestActor3.tres"}
+        {"Name": "Actor0", "Position": "Vector2 (152, 376)", "Face":"Normal", "Info": "res://TestAssets/TestActor.tres"},
+        {"Name": "Actor1", "Position": "Vector2 (872, 376)", "Face":"Normal", "Info": "res://TestAssets/TestActor2.tres"},
+        {"Name": "Actor2", "Position": "Vector2 (512, 56)", "Face":"Normal", "Info": "res://TestAssets/TestActor3.tres"}
+    ]
+    ,
+    "actorDict2": 
+    [
+        {"Name": "Actor3", "Position": "Vector2 (512, 376)", "Face":"Sad", "Info": "res://TestAssets/TestActor2.tres"}
     ]
 }

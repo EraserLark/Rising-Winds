@@ -24,6 +24,7 @@ func newChoice(choices, TBshow):
 		button.connect("pressed", self, "_button_pressed", [choiceRoute])
 		choiceButtons.add_child(button)
 
+#Runs when the signal "pressed" is emitted by a button
 func _button_pressed(chosenRoute):
 	textboxReveal(true)
 	buttonReveal(false)
@@ -34,7 +35,7 @@ func clearChoices():
 	for n in choiceButtons.get_children():
 		choiceButtons.remove_child(n)
 		n.queue_free()
-		#Disconnect button signals?
+		#Disconnect button signals? (Online says they disconnect automatically)
 
 func changeName(name):
 	nameLabel.text = name
