@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Rising_Winds"
 run/main_scene="res://NovelStage.tscn"
-config/icon="res://icon.png"
+config/icon="res://TestAssets/icon.png"
 
 [display]
 

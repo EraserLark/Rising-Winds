@@ -1,0 +1,23 @@
+{
+	"chapterStart": {
+		"startingCast": [
+			{"Actor": 0, "Name": "Quentin", "Position": "Vector2 (152, 376)", "Face":"Happy",   "Info": "res://TestAssets/TestActor.tres"},
+            {"Actor": 1, "Name": "Leo",     "Position": "Vector2 (872, 376)", "Face":"Sad",     "Info": "res://TestAssets/TestActor2.tres"}
+		],
+		"startingRoute": "route1"
+	},
+    
+    "route1" : [
+        {"Actor": 0, "Name": "Quentin", 	"Face": "Happy", 	"Dialogue": "Howdy Leo!", "Anim": null},
+        {"Actor": 1, "Name": "Leo", 	    "Face": "Normal", 	"Dialogue": "Hey Quentin", "Anim": null},
+        {"Actor": 0, "Name": "Quentin",	    "Face": "Normal", 	"Dialogue": "What's it like sneezing fire all the time?", "Anim": null},
+        {"Actor": 1, "Name": "Leo", 	    "Face": "Sad", 		"Dialogue": "Wonderful.", "Anim": null }
+    ],
+
+    "choiceDict" : [
+        {"Text": "A",   "Route": "route1"},
+        {"Text": "B",   "Route": "route1"},
+        {"Text": "C",   "Route": "route1"},
+        {"Text": "4",   "Route": "route1"}
+    ]
+}

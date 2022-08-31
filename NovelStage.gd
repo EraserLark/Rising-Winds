@@ -5,8 +5,6 @@ onready var cast = $Cast
 onready var animPlayer = $AnimationPlayer
 
 export (String) var jsonDialogue
-var startingCast = "actorDict2"
-var startingRoute = "masterDict"
 var convos
 
 var dictCount : int = 0
@@ -15,8 +13,11 @@ var routeSize = 0
 
 func _ready():
 	convos = loadJSONFile(jsonDialogue)
+	var startingCast = convos["chapterStart"]["startingCast"]
+	var startingRoute = convos["chapterStart"]["startingRoute"]
+	
 	novInterface.connect("choice_selected", self, "nextChoice")
-	cast.updateCast(convos, startingCast)
+	cast.updateCast(startingCast)
 	routeStart(convos, startingRoute)
 
 #https://www.youtube.com/watch?v=8HOmLNuuccs&t=178s
