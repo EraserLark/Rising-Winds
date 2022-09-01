@@ -1,0 +1,138 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://TestAssets/TestActor.tres" type="Resource" id=1]
+[ext_resource path="res://TestAssets/TestActor3.tres" type="Resource" id=2]
+[ext_resource path="res://TestAssets/TestActor2.tres" type="Resource" id=3]
+[ext_resource path="res://Novel/NovelInterface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/Actor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Novel/NovelStage.gd" type="Script" id=6]
+[ext_resource path="res://Actors/Cast.gd" type="Script" id=7]
+[ext_resource path="res://Audio/Music/ROUGH_Mellow_Happy_1.mp3" type="AudioStream" id=8]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.472527, 1 )
+colors = PoolColorArray( 0.78125, 1, 0, 1, 0.078125, 1, 0, 1, 0, 0.296875, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cast/Actor0/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cast/Actor0:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Spin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cast/Actor0:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "testPeekDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cast/Actor2/Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -17, 0 ), Vector2( 20, 0 ), Vector2( -15, 0 ), Vector2( 13, 0 ), Vector2( -10, 0 ), Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cast/Actor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, -100 ), Vector2( 512, 56 ) ]
+}
+
+[node name="NovelStage" type="Node"]
+script = ExtResource( 6 )
+jsonDialogue = "res://JSON/chapter1.json"
+
+[node name="TestBG" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 16, 9.375 )
+texture = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cast" type="Node2D" parent="."]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Actor0" parent="Cast" instance=ExtResource( 5 )]
+position = Vector2( 152, 376 )
+actorInfo = ExtResource( 1 )
+startFace = "Happy"
+
+[node name="Actor1" parent="Cast" instance=ExtResource( 5 )]
+position = Vector2( 872, 376 )
+actorInfo = ExtResource( 3 )
+
+[node name="Actor2" parent="Cast" instance=ExtResource( 5 )]
+position = Vector2( 512, 56 )
+rotation = 3.14159
+actorInfo = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="NovelInterface" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/Spin = SubResource( 5 )
+anims/testPeekDown = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true

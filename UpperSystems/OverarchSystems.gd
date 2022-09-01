@@ -1,6 +1,6 @@
 extends Node
 
-var novelStage = preload("res://NovelStage.tscn")
+var novelStage = preload("res://Novel/NovelStage.tscn")
 onready var mainMenu = $MainMenu
 
 func _ready():
