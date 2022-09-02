@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interfaces/Intf_Button.gd" type="Script" id=1]
+
+[node name="Intf_Button" type="VBoxContainer"]
+margin_left = 469.0
+margin_top = 290.0
+margin_right = 555.0
+margin_bottom = 310.0
+custom_constants/separation = 10
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Buttons are instanced as children of this node!"
+}
+
+[node name="TestButton" type="Button" parent="."]
+margin_right = 86.0
+margin_bottom = 20.0
+text = "Test Button"

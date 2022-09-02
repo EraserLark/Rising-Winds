@@ -15,8 +15,9 @@ func _ready():
 	convos = loadJSONFile(jsonDialogue)
 	var startingCast = convos["chapterStart"]["startingCast"]
 	var startingRoute = convos["chapterStart"]["startingRoute"]
+	#Signals
+	#novInterface.connect("choice_selected", self, "nextChoice")
 	
-	novInterface.connect("choice_selected", self, "nextChoice")
 	cast.updateCast(startingCast)
 	routeStart(convos, startingRoute)
 
@@ -33,7 +34,7 @@ func loadJSONFile(file_path):
 func routeStart(dialogueObj, routeName):
 	dictCount = 0
 	setRoute(dialogueObj, routeName)	
-	novInterface.buttonReveal(false)	#Hide buttons
+	#novInterface.buttonReveal(false)	#Hide buttons
 	nextLine(route[dictCount])
 
 func setRoute(dialogObj, routeName):
@@ -46,8 +47,9 @@ func _process(delta):
 		dictCount += 1
 		if dictCount < routeSize:
 			nextLine(route[dictCount])
-		else:
-			showChoices(convos["choiceDict"])
+#		else:
+#			openInterface("choice", convos["choiceDict"])
+#			openInterface(convos["choiceDict"])
 
 func nextLine(typeDict):
 	if "Dialogue" in typeDict:
@@ -68,9 +70,28 @@ func nextLine(typeDict):
 		var actor = cast.actorArray[dict["Actor"]]
 		animPlayer.play(dict["Anim"])
 		novInterface.changeText("")
+	if "Interface" in typeDict:
+		openInterface(typeDict["Interface"])
 
-func showChoices(choicesDict):
-	novInterface.newChoice(choicesDict, false)
+func openInterface(intfData):
+	var newInterface = load(intfData["Type"]).instance()
+	newInterface.connect("interfaceCreated", self, "setInterface")
+	newInterface.connect("result", self, "interfaceResults")
+	newInterface.init(convos[intfData["Data"]])
+	#novInterface.centerContainer.add_child(newInterface)
+#	if type == "choice":
+#		novInterface.newChoice(data, false)
 
-func nextChoice(nextRoute):
-	routeStart(convos, nextRoute)
+func setInterface(child, parentName):
+	print("Interface Connected!")
+	var parentNode = get_node(parentName)
+	parentNode.add_child(child)
+
+func interfaceResults(intfNode, results):
+	#Run closing function in intfNode, if any
+	intfNode.queue_free()
+	routeStart(convos, results)
+
+#func nextChoice(nextRoute):
+#	novInterface.find_node("VBoxContainer").queue_free()
+#	routeStart(convos, nextRoute)

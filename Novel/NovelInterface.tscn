@@ -11,21 +11,6 @@ script = ExtResource( 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 469.0
-margin_top = 290.0
-margin_right = 555.0
-margin_bottom = 310.0
-custom_constants/separation = 10
-__meta__ = {
-"_editor_description_": "Buttons are instanced as children of this node!"
-}
-
-[node name="TestButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 86.0
-margin_bottom = 20.0
-text = "Test Button"
-
 [node name="Panel" type="Panel" parent="."]
 margin_left = 8.0
 margin_top = 488.0
