@@ -20,8 +20,7 @@ func init(choices):
 		add_child(button)
 
 func _button_pressed(chosenRoute):
-#	textboxReveal(true)
-#	buttonReveal(false)
+	#Run closing functions here, if any, before emitting signal!
 	emit_signal("result", self, chosenRoute)
 
 func clearChoices():

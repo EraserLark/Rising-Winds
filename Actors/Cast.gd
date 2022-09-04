@@ -4,15 +4,6 @@ var actorTemp = preload("res://Actors/Actor.tscn")
 var actorArray : Array
 
 func updateCast(castDict):
-	#var newCast = jsonObj[castDict]
-	
-#	actorArray = updateActorArray()
-#	var currentCast = actorArray.size()
-#	var castDictLen = castDict.len()
-#	if currentCast < castDictLen:
-#		var diff = castDictLen - currentCast
-#		addBlankActor(diff)
-	
 	for obj in castDict:
 		updateActor(obj)
 	
