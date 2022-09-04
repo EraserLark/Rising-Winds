@@ -2,7 +2,7 @@ extends Node
 
 onready var novInterface = $NovelInterface
 onready var cast = $Cast
-onready var animPlayer = $AnimationPlayer
+onready var animPlayer = $NovelAnimPlayer
 
 export (String) var jsonDialogue
 var convos
@@ -26,6 +26,13 @@ func _process(delta):
 		dictCount += 1
 		if dictCount < routeSize:
 			nextLine(route[dictCount])
+
+#Alternate way for inputs??
+#func _input(event):
+#	if event.is_action_just_pressed("ui_accept"):
+#		dictCount += 1
+#		if dictCount < routeSize:
+#			nextLine(route[dictCount])
 
 
 ##ROUTES
@@ -56,8 +63,7 @@ func nextLine(typeDict):
 		actor.changeFace(dict["Face"])
 		#ANIMATION - ConcurrentAnim
 		if dict["Anim"] != null:
-			#actor.playAnimation(dict["Anim"])
-			animPlayer.play(dict["Anim"])
+			animPlayer.playAnimation(dict["Anim"])
 		#DIALOGUE
 		novInterface.changeName(dict["Name"])
 		novInterface.changeText(dict["Dialogue"])
@@ -65,7 +71,7 @@ func nextLine(typeDict):
 	if "Animation" in typeDict:
 		var dict = typeDict["Animation"]
 		var actor = cast.actorArray[dict["Actor"]]
-		animPlayer.play(dict["Anim"])
+		animPlayer.playAnimation(dict["Anim"])
 		novInterface.changeText("")
 	if "Interface" in typeDict:
 		openInterface(typeDict["Interface"])
