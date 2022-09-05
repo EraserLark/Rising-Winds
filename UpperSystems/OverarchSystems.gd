@@ -12,3 +12,4 @@ func startChapter():
 	var currentNovStage = novelStage.instance()
 	self.add_child(currentNovStage)
 	get_node("MainMenu").queue_free()
+

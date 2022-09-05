@@ -11,9 +11,14 @@ var dictCount : int = 0
 var route
 var routeSize = 0
 
+enum StageState {NEXTLINE, DIALOGUE, SOLOANIM, INTERFACE}
+var currentState
 
 ##BASE FUNCTIONS
 func _ready():
+	currentState = StageState.NEXTLINE
+	animPlayer.connect("animFinished", self, "soloAnimFin")
+	
 	convos = loadJSONFile(jsonDialogue)
 	var startingCast = convos["chapterStart"]["startingCast"]
 	var startingRoute = convos["chapterStart"]["startingRoute"]
@@ -21,18 +26,18 @@ func _ready():
 	cast.updateCast(startingCast)
 	routeStart(convos, startingRoute)
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		dictCount += 1
-		if dictCount < routeSize:
-			nextLine(route[dictCount])
-
 #Alternate way for inputs??
-#func _input(event):
-#	if event.is_action_just_pressed("ui_accept"):
-#		dictCount += 1
-#		if dictCount < routeSize:
-#			nextLine(route[dictCount])
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		match currentState:
+			StageState.NEXTLINE:
+				advance()
+			StageState.DIALOGUE:
+				pass	#Will replace once typewriter effect is set up
+			StageState.SOLOANIM:
+				animPlayer.soloAnimInput()
+			StageState.INTERFACE:
+				pass	#Leave as 'pass', don't want input when interface is open
 
 
 ##ROUTES
@@ -48,6 +53,7 @@ func loadJSONFile(file_path):
 
 func routeStart(dialogueObj, routeName):
 	dictCount = 0
+	currentState = StageState.NEXTLINE
 	setRoute(dialogueObj, routeName)	
 	nextLine(route[dictCount])
 
@@ -55,8 +61,14 @@ func setRoute(dialogObj, routeName):
 	route = dialogObj[routeName]
 	routeSize = route.size()
 
+func advance():
+	dictCount += 1
+	if dictCount < routeSize:
+		nextLine(route[dictCount])
+
 func nextLine(typeDict):
 	if "Dialogue" in typeDict:
+#		currentState = StageState.DIALOGUE
 		var dict = typeDict["Dialogue"]
 		#ACTOR
 		var actor = cast.actorArray[dict["Actor"]]
@@ -69,13 +81,20 @@ func nextLine(typeDict):
 		novInterface.changeText(dict["Dialogue"])
 	#SoloAnim
 	if "Animation" in typeDict:
+		currentState = StageState.SOLOANIM
 		var dict = typeDict["Animation"]
 		var actor = cast.actorArray[dict["Actor"]]
 		animPlayer.playAnimation(dict["Anim"])
 		novInterface.changeText("")
 	if "Interface" in typeDict:
+		currentState = StageState.INTERFACE
 		openInterface(typeDict["Interface"])
 
+
+##ANIMATION
+func soloAnimFin():
+	currentState = StageState.NEXTLINE	#Needed now, will remove after dialogue is set up
+	advance()
 
 ##INTERFACE
 func openInterface(intfData):
