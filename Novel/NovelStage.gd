@@ -28,16 +28,16 @@ func _ready():
 
 #Alternate way for inputs??
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		match currentState:
-			StageState.NEXTLINE:
+	match currentState:
+		StageState.NEXTLINE:
+			if event.is_action_pressed("ui_accept"):
 				advance()
-			StageState.DIALOGUE:
-				pass	#Will replace once typewriter effect is set up
-			StageState.SOLOANIM:
-				animPlayer.soloAnimInput()
-			StageState.INTERFACE:
-				pass	#Leave as 'pass', don't want input when interface is open
+		StageState.DIALOGUE:
+			pass	#Will replace once typewriter effect is set up
+		StageState.SOLOANIM:
+			animPlayer.soloAnimInput(event)
+		StageState.INTERFACE:
+			pass	#Leave as 'pass', don't want input when interface is open
 
 
 ##ROUTES

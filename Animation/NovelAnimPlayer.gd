@@ -1,19 +1,18 @@
 extends AnimationPlayer
 
-var spaceSpeed = false
+#var spaceSpeed = false
 var animSpeed = 1
 
 signal animFinished()
 
 func playAnimation(animation):
 	self.play(animation)
-	spaceSpeed = false
+#	spaceSpeed = false
 
-func soloAnimInput():
-	spaceSpeed = !spaceSpeed
-	if spaceSpeed:
+func soloAnimInput(event):
+	if event.is_action("ui_accept"):
 		self.playback_speed = 3
-	else:
+	if event.is_action_released("ui_accept"):
 		self.playback_speed = 1
 
 #For SoloAnimations, need to wait until finished to move on
