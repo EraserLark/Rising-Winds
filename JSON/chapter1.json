@@ -17,8 +17,9 @@
     ],
 
     "route2" : [
-        {"Animation": {"Actor": 1, "Anim": "Spin"}},
-        {"Animation": {"Actor": 1, "Anim": "Spin"}},
+        {"Animation": {"Actor": 0, "Anim": "Spin"}},
+        {"Animation": {"Actor": 0, "Anim": "Spin"}},
+        {"Dialogue": {"Actor": 1, "Name": "Leo", 	    "Face": "Normal", 		"Dialogue": "Those are some sick flips, Quentin.", "Anim": null }},
         {"Interface": {"Type": "res://Interfaces/Intf_Button.tscn", "Data": "choiceDict"}}
     ],
 

@@ -18,6 +18,7 @@ var currentState
 func _ready():
 	currentState = StageState.NEXTLINE
 	animPlayer.connect("animFinished", self, "soloAnimFin")
+	novInterface.connect("phraseFin", self, "dialogueFin")
 	
 	convos = loadJSONFile(jsonDialogue)
 	var startingCast = convos["chapterStart"]["startingCast"]
@@ -33,7 +34,7 @@ func _input(event):
 			if event.is_action_pressed("ui_accept"):
 				advance()
 		StageState.DIALOGUE:
-			pass	#Will replace once typewriter effect is set up
+			novInterface.dialogueInput(event)
 		StageState.SOLOANIM:
 			animPlayer.soloAnimInput(event)
 		StageState.INTERFACE:
@@ -68,7 +69,7 @@ func advance():
 
 func nextLine(typeDict):
 	if "Dialogue" in typeDict:
-#		currentState = StageState.DIALOGUE
+		currentState = StageState.DIALOGUE
 		var dict = typeDict["Dialogue"]
 		#ACTOR
 		var actor = cast.actorArray[dict["Actor"]]
@@ -78,7 +79,7 @@ func nextLine(typeDict):
 			animPlayer.playAnimation(dict["Anim"])
 		#DIALOGUE
 		novInterface.changeName(dict["Name"])
-		novInterface.changeText(dict["Dialogue"])
+		novInterface.typeText(dict["Dialogue"])
 	#SoloAnim
 	if "Animation" in typeDict:
 		currentState = StageState.SOLOANIM
@@ -90,6 +91,10 @@ func nextLine(typeDict):
 		currentState = StageState.INTERFACE
 		openInterface(typeDict["Interface"])
 
+
+##DIALOGUE
+func dialogueFin():
+	currentState = StageState.NEXTLINE
 
 ##ANIMATION
 func soloAnimFin():

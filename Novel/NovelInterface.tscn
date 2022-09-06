@@ -32,3 +32,5 @@ margin_left = 8.0
 margin_right = 248.0
 margin_bottom = 24.0
 text = "NAME"
+
+[node name="Timer" type="Timer" parent="Panel"]
