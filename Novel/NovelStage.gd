@@ -19,6 +19,7 @@ func _ready():
 	currentState = StageState.NEXTLINE
 	animPlayer.connect("animFinished", self, "soloAnimFin")
 	novInterface.connect("phraseFin", self, "dialogueFin")
+#	novInterface.connect("phraseFin", animPlayer, "dialogueFin")
 	
 	convos = loadJSONFile(jsonDialogue)
 	var startingCast = convos["chapterStart"]["startingCast"]
@@ -32,6 +33,8 @@ func _input(event):
 	match currentState:
 		StageState.NEXTLINE:
 			if event.is_action_pressed("ui_accept"):
+				#Play confirm SFX
+				animPlayer.skipToEnd()	#If any concurrentAnimations are still running, skip them to the end before advancing
 				advance()
 		StageState.DIALOGUE:
 			novInterface.dialogueInput(event)
@@ -68,9 +71,9 @@ func advance():
 		nextLine(route[dictCount])
 
 func nextLine(typeDict):
-	if "Dialogue" in typeDict:
+	if "D" in typeDict:
 		currentState = StageState.DIALOGUE
-		var dict = typeDict["Dialogue"]
+		var dict = typeDict["D"]
 		#ACTOR
 		var actor = cast.actorArray[dict["Actor"]]
 		actor.changeFace(dict["Face"])
@@ -81,15 +84,16 @@ func nextLine(typeDict):
 		novInterface.changeName(dict["Name"])
 		novInterface.typeText(dict["Dialogue"])
 	#SoloAnim
-	if "Animation" in typeDict:
+	if "SA" in typeDict:
 		currentState = StageState.SOLOANIM
-		var dict = typeDict["Animation"]
+		var dict = typeDict["SA"]
 		var actor = cast.actorArray[dict["Actor"]]
 		animPlayer.playAnimation(dict["Anim"])
-		novInterface.changeText("")
-	if "Interface" in typeDict:
+		novInterface.showTextbox(false)
+	if "I" in typeDict:
 		currentState = StageState.INTERFACE
-		openInterface(typeDict["Interface"])
+		novInterface.showTextbox(false)
+		openInterface(typeDict["I"])
 
 
 ##DIALOGUE
@@ -98,8 +102,8 @@ func dialogueFin():
 
 ##ANIMATION
 func soloAnimFin():
-	currentState = StageState.NEXTLINE	#Needed now, will remove after dialogue is set up
-	advance()
+	if currentState == StageState.SOLOANIM:	#Prevents ConcurrentAnims from triggering advance()
+		advance()
 
 ##INTERFACE
 func openInterface(intfData):

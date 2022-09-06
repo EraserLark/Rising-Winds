@@ -13,27 +13,18 @@ signal phraseFin()
 #var typeSpeed = 30
 
 func _ready():
-	setTimerSpeed(0.05)
+	setTimerSpeed(0.05)	#Set type speed
 
 func setTimerSpeed(newSpeed):
 	typeTimer.set_wait_time(newSpeed)
 
-func changeName(name):
-	nameLabel.text = name
-
 func typeText(newText : String):
+	
+	textBox.clear()
+	showTextbox(true)
 	
 	currentDialogue = newText
 	charIndex = 0
-#	var t : float = 0
-#
-#	while charIndex < newText.length():
-#		t += self.get_process_delta_time() * typeSpeed
-#		charIndex = int(t)
-#		charIndex = clamp(charIndex, 0, newText.length())
-#		textBox.text = newText.substr(0, charIndex)
-	
-	textBox.clear()
 	
 	while charIndex < currentDialogue.length():
 		typeTimer.start()
@@ -43,13 +34,16 @@ func typeText(newText : String):
 	
 	emit_signal("phraseFin")
 
-func changeText(newText):
-	textBox.text = newText
-
 func dialogueInput(event):
 	if event.is_action_pressed("ui_accept"):
 		textBox.text = currentDialogue
-		charIndex = 10000
+		charIndex = currentDialogue.length()
 
-func textboxReveal(condition):
+func changeText(newText):
+	textBox.text = newText
+
+func changeName(name):
+	nameLabel.text = name
+
+func showTextbox(condition):
 	textPanel.visible = condition
