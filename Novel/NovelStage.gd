@@ -77,7 +77,7 @@ func nextLine(typeDict):
 		#ACTOR
 		var actor = cast.actorArray[dict["Actor"]]
 		actor.changeFace(dict["Face"])
-		actor.changePose(dict["Face"])	#Temp. Will change to 'changePose' once implemented
+		actor.changePose(dict["Pose"])
 		#ANIMATION - ConcurrentAnim
 		if dict["Anim"] != null:
 			animPlayer.playAnimation(dict["Anim"])

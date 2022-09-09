@@ -5,7 +5,7 @@
 [ext_resource path="res://TestAssets/Normal.png" type="Texture" id=3]
 [ext_resource path="res://TestAssets/Angry.png" type="Texture" id=4]
 [ext_resource path="res://TestAssets/Sad.png" type="Texture" id=5]
-[ext_resource path="res://TestAssets/TestBodies/NormalBody.png" type="Texture" id=6]
+[ext_resource path="res://Art/Q_Pose_Idle.png" type="Texture" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -17,14 +17,7 @@ charFaces = {
 "Sad": ExtResource( 5 )
 }
 charPoses = {
-"Angry": ExtResource( 6 ),
-"Happy": ExtResource( 6 ),
-"Normal": ExtResource( 6 ),
-"Sad": ExtResource( 6 )
+"Idle": ExtResource( 6 )
 }
 offsetData = {
-"Angry": Vector2( 100, 0 ),
-"Happy": Vector2( 0, 25 ),
-"Normal": Vector2( 0, 0 ),
-"Sad": Vector2( 0, -75 )
 }

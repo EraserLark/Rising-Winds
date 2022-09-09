@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Actors/Actor.gd" type="Script" id=1]
 [ext_resource path="res://TestAssets/Normal.png" type="Texture" id=2]
-[ext_resource path="res://TestAssets/TestBodies/NormalBody.png" type="Texture" id=3]
+[ext_resource path="res://Art/Q_Pose_Idle.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveIn"
 tracks/0/type = "value"
-tracks/0/path = NodePath("BodySprite/FacePoint/FaceSprite:position")
+tracks/0/path = NodePath("BodyPoint/FacePoint/FaceSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -22,7 +22,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("BodySprite/FacePoint/FaceSprite:position")
+tracks/0/path = NodePath("BodyPoint/FacePoint/FaceSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("BodySprite/FacePoint/FaceSprite:visible")
+tracks/1/path = NodePath("BodyPoint/FacePoint/FaceSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -61,14 +61,20 @@ tracks/2/keys = {
 [node name="Actor" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="BodySprite" type="Sprite" parent="."]
-position = Vector2( 0, -128 )
+[node name="BodyPoint" type="Node2D" parent="."]
+position = Vector2( 0, -112 )
+
+[node name="BodySprite" type="Sprite" parent="BodyPoint"]
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="FacePoint" type="Node2D" parent="BodySprite"]
-position = Vector2( 0, -88 )
+[node name="FacePoint" type="Node2D" parent="BodyPoint"]
+position = Vector2( -8, -56 )
 
-[node name="FaceSprite" type="Sprite" parent="BodySprite/FacePoint"]
+[node name="FaceSprite" type="Sprite" parent="BodyPoint/FacePoint"]
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
