@@ -1,14 +1,14 @@
 {
 	"chapterStart": {
 		"startingCast": [
-			{"Actor": 0, "Name": "Quentin", "Position": "Vector2 (152, 376)", "Face":"Happy",   "Info": "res://TestAssets/TestActor.tres"},
-            {"Actor": 1, "Name": "Leo",     "Position": "Vector2 (872, 376)", "Face":"Sad",     "Info": "res://TestAssets/TestActor2.tres"}
+			{"Actor": 0, "Name": "Quentin", "Position": "Vector2 (152, 488)", "Face":"Happy", "Pose":"Normal",  "Info": "res://TestAssets/TestActor.tres"},
+            {"Actor": 1, "Name": "Leo",     "Position": "Vector2 (872, 488)", "Face":"Sad",   "Pose":"Sad",     "Info": "res://TestAssets/TestActor.tres"}
 		],
 		"startingRoute": "route1"
 	},
     
     "route1" : [
-        {"D": {"Actor": 0, "Name": "Quentin", 	"Face": "Happy", 	"Dialogue": "<9>.<9>.<9>.<2>Howdy Leo!", "Anim": null}},
+        {"D": {"Actor": 0, "Name": "Quentin", 	"Face": "Happy", 	"Dialogue": "<9>...<2>Howdy Leo!", "Anim": null}},
         {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Normal", 	"Dialogue": "Hey Quentin", "Anim": null}},
         {"SA": {"Actor": 0, "Anim": "Spin"}},
         {"D": {"Actor": 0, "Name": "Quentin",	    "Face": "Normal", 	"Dialogue": "What's it like sneezing fire all the time?", "Anim": null}},

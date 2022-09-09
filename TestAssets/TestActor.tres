@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://TestAssets/TestFacesData.gd" type="Script" id=1]
 [ext_resource path="res://TestAssets/Happy.png" type="Texture" id=2]
 [ext_resource path="res://TestAssets/Normal.png" type="Texture" id=3]
 [ext_resource path="res://TestAssets/Angry.png" type="Texture" id=4]
 [ext_resource path="res://TestAssets/Sad.png" type="Texture" id=5]
+[ext_resource path="res://TestAssets/TestBodies/NormalBody.png" type="Texture" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -14,4 +15,16 @@ charFaces = {
 "Happy": ExtResource( 2 ),
 "Normal": ExtResource( 3 ),
 "Sad": ExtResource( 5 )
+}
+charPoses = {
+"Angry": ExtResource( 6 ),
+"Happy": ExtResource( 6 ),
+"Normal": ExtResource( 6 ),
+"Sad": ExtResource( 6 )
+}
+offsetData = {
+"Angry": Vector2( 100, 0 ),
+"Happy": Vector2( 0, 25 ),
+"Normal": Vector2( 0, 0 ),
+"Sad": Vector2( 0, -75 )
 }

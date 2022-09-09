@@ -7,10 +7,10 @@ onready var nameLabel = $Panel/NameLabel
 
 onready var typeTimer = $Panel/Timer
 var defaultTypeSpeed = 0.05
-var charIndex : int = 0
-var currentDialogue
-var inTag = false
+#var charIndex : int = 0
+#var currentDialogue
 var skip = false
+var inTag = false
 signal phraseFin()
 
 #var typeSpeed = 30
@@ -27,8 +27,8 @@ func typeText(newText : String):
 	showTextbox(true)
 	setTimerSpeed(1) #Set type speed
 	
-	currentDialogue = newText
-	charIndex = 0
+	var currentDialogue = newText
+	var charIndex = 0
 	skip = false
 	
 	#for loop instead?
@@ -46,6 +46,7 @@ func typeText(newText : String):
 	
 	emit_signal("phraseFin")
 
+#https://youtu.be/jhwfA-QF54M?t=403
 func checkTag(fullText, characterIndex):
 		if fullText[characterIndex] == "<":
 			var customWaitMult = int(fullText[characterIndex + 1])

@@ -15,3 +15,7 @@ charFaces = {
 "Normal": ExtResource( 3 ),
 "Sad": ExtResource( 5 )
 }
+charPoses = {
+}
+offsetData = {
+}
