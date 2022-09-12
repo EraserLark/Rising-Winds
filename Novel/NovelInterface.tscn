@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Novel/NovelInterface.gd" type="Script" id=1]
+[ext_resource path="res://Audio/SFX/TEST_glass_006.ogg" type="AudioStream" id=2]
 
 [node name="NovelInterface" type="Control"]
 anchor_right = 1.0
@@ -34,3 +35,6 @@ margin_bottom = 24.0
 text = "NAME"
 
 [node name="Timer" type="Timer" parent="Panel"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 2 )

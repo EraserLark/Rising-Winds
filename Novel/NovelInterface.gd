@@ -7,6 +7,7 @@ onready var nameLabel = $Panel/NameLabel
 
 onready var typeTimer = $Panel/Timer
 var defaultTypeSpeed = 0.05
+onready var typeSound = $Panel/AudioStreamPlayer
 #var charIndex : int = 0
 #var currentDialogue
 var skip = false
@@ -20,6 +21,9 @@ func _ready():
 
 func setTimerSpeed(multiplier):
 	typeTimer.set_wait_time(defaultTypeSpeed * multiplier)
+
+func setTimer(time):
+	typeTimer.set_wait_time(time)
 
 func typeText(newText : String):
 	
@@ -38,6 +42,7 @@ func typeText(newText : String):
 		
 		if !inTag:
 			textBox.text += currentDialogue[charIndex]
+			typeSound.play()
 			if !skip:
 				typeTimer.start()
 				yield(typeTimer, "timeout")
@@ -49,9 +54,18 @@ func typeText(newText : String):
 #https://youtu.be/jhwfA-QF54M?t=403
 func checkTag(fullText, characterIndex):
 		if fullText[characterIndex] == "<":
-			var customWaitMult = int(fullText[characterIndex + 1])
-			setTimerSpeed(customWaitMult)
 			inTag = true
+			var nextChar = fullText[characterIndex + 1]
+			
+			#Typing Speed
+			if nextChar == "S":
+				var customWaitMult = int(fullText[characterIndex + 2])
+				setTimerSpeed(customWaitMult)
+			#Pause Typing
+			elif nextChar == "P":
+				var pauseTime = int(fullText[characterIndex + 2])
+				setTimer(pauseTime)
+				
 		elif inTag:
 			if fullText[characterIndex - 1] == ">":
 				inTag = false
