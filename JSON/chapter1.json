@@ -1,8 +1,8 @@
 {
 	"chapterStart": {
 		"startingCast": [
-			{"Actor": 0, "Name": "Quentin", "Position": "Vector2 (152, 488)", "Face":"Happy", "Pose":"Idle",  "Info": "res://TestAssets/TestActor.tres"},
-            {"Actor": 1, "Name": "Leo",     "Position": "Vector2 (872, 488)", "Face":"Sad",   "Pose":"Idle",     "Info": "res://TestAssets/TestActor.tres"}
+			{"Actor": 0, "Name": "Quentin", "Position": "Vector2 (184, 624)", "Face":"Happy", "Pose":"Idle",  "Info": "res://TestAssets/TestActor.tres"},
+            {"Actor": 1, "Name": "Leo",     "Position": "Vector2 (872, 624)", "Face":"Sad",   "Pose":"Idle",     "Info": "res://TestAssets/TestLeoActor.tres"}
 		],
 		"startingRoute": "route1"
 	},
@@ -19,7 +19,7 @@
     "route2" : [
         {"SA": {"Actor": 0, "Anim": "Spin"}},
         {"SA": {"Actor": 0, "Anim": "Spin"}},
-        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Normal", 	"Pose":"Idle",	"Dialogue": "Those are some sick flips, Quentin.", "Anim": null }},
+        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Happy", 	"Pose":"Idle",	"Dialogue": "Those are some sick flips, Quentin.", "Anim": null }},
         {"I": {"Type": "res://Interfaces/Intf_Button.tscn", "Data": "choiceDict"}}
     ],
 
