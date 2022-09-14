@@ -29,8 +29,10 @@ func playAnimation(anim):
 	animPlayer.play(anim)
 
 func change_flipped(case):
-	var actorOrient = self.get_node("BodyPoint")
+#	var actorOrient = self.get_node("BodyPoint")
+	var actorOrient = self
+	var currentScale = actorOrient.scale
 	if case:
-		actorOrient.set_scale(Vector2(-1, 1))
+		actorOrient.set_scale(Vector2(-currentScale.x, currentScale.y))
 	if !case:
-		actorOrient.set_scale(Vector2(1, 1))
+		actorOrient.set_scale(Vector2(currentScale.x, currentScale.y))

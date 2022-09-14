@@ -34,7 +34,6 @@ func _input(event):
 		StageState.NEXTLINE:
 			if event.is_action_pressed("ui_accept"):
 				#Play confirm SFX
-				animPlayer.skipToEnd()	#If any concurrentAnimations are still running, skip them to the end before advancing
 				advance()
 		StageState.DIALOGUE:
 			novInterface.dialogueInput(event)
@@ -80,7 +79,9 @@ func nextLine(typeDict):
 		actor.changePose(dict["Pose"])
 		#ANIMATION - ConcurrentAnim
 		if dict["Anim"] != null:
-			animPlayer.playAnimation(dict["Anim"])
+			#animPlayer.playAnimation(dict["Anim"])
+			animPlayer.actorAnimation(actor, dict["Anim"])
+#			actor.playAnimation(dict["Anim"])
 		#DIALOGUE
 		novInterface.changeName(dict["Name"])
 		novInterface.typeText(dict["Dialogue"])
@@ -99,6 +100,7 @@ func nextLine(typeDict):
 
 ##DIALOGUE
 func dialogueFin():
+	animPlayer.skipToEnd()	#If any concurrentAnimations are still running, skip them to the end before advancing
 	currentState = StageState.NEXTLINE
 
 ##ANIMATION
