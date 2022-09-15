@@ -71,7 +71,7 @@ func checkTag(fullText, characterIndex):
 				inTag = false
 
 func dialogueInput(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action("ui_accept"):
 		typeTimer.emit_signal("timeout")	#Skips to end of current 'yield' timer, based off typing speed
 		skip = true
 

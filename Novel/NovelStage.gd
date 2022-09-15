@@ -5,7 +5,7 @@ onready var cast = $Cast
 onready var animPlayer = $NovelAnimPlayer
 
 export (String) var jsonDialogue
-var convos
+var chData
 
 var dictCount : int = 0
 var route
@@ -19,14 +19,13 @@ func _ready():
 	currentState = StageState.NEXTLINE
 	animPlayer.connect("animFinished", self, "soloAnimFin")
 	novInterface.connect("phraseFin", self, "dialogueFin")
-#	novInterface.connect("phraseFin", animPlayer, "dialogueFin")
 	
-	convos = loadJSONFile(jsonDialogue)
-	var startingCast = convos["chapterStart"]["startingCast"]
-	var startingRoute = convos["chapterStart"]["startingRoute"]
+	chData = loadJSONFile(jsonDialogue)
+	var startingCast = chData["chapterStart"]["startingCast"]
+	var startingRoute = chData["chapterStart"]["startingRoute"]
 	
 	cast.updateCast(startingCast)
-	routeStart(convos, startingRoute)
+	routeStart(chData, startingRoute)
 
 #Alternate way for inputs??
 func _input(event):
@@ -78,11 +77,9 @@ func nextLine(typeDict):
 		actor.changeFace(dict["Face"])
 		actor.changePose(dict["Pose"])
 		#ANIMATION - ConcurrentAnim
-		if dict["Anim"] != null:
-			#animPlayer.playAnimation(dict["Anim"])
-#			animPlayer.actorAnimation(actor, dict["Anim"])
+		if dict.has("Anim"):
+#		if dict["Anim"] != null:
 			animPlayer.determineAnimType(actor, dict["Anim"])
-#			actor.playAnimation(dict["Anim"])
 		#DIALOGUE
 		novInterface.changeName(dict["Name"])
 		novInterface.typeText(dict["Dialogue"])
@@ -114,7 +111,7 @@ func openInterface(intfData):
 	var newInterface = load(intfData["Type"]).instance()
 	newInterface.connect("interfaceCreated", self, "setInterface")
 	newInterface.connect("result", self, "interfaceResults")
-	newInterface.init(convos[intfData["Data"]])
+	newInterface.init(chData[intfData["Data"]])
 
 func setInterface(child, parentName):
 	print("Interface Connected!")
@@ -123,4 +120,4 @@ func setInterface(child, parentName):
 
 func interfaceResults(intfNode, results):
 	intfNode.queue_free()
-	routeStart(convos, results)
+	routeStart(chData, results)
