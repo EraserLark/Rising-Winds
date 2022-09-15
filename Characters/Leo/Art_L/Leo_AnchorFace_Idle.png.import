@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Q_Face_Angry.png-7995e4b7bfeced18bedabbc79ff67375.stex"
+path="res://.import/Leo_AnchorFace_Idle.png-8a83c8e4ce49f47a9c1b0589f6bf2f20.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Character/Quentin/Q_Face_Angry.png"
-dest_files=[ "res://.import/Q_Face_Angry.png-7995e4b7bfeced18bedabbc79ff67375.stex" ]
+source_file="res://Characters/Leo/Art_L/Leo_AnchorFace_Idle.png"
+dest_files=[ "res://.import/Leo_AnchorFace_Idle.png-8a83c8e4ce49f47a9c1b0589f6bf2f20.stex" ]
 
 [params]
 

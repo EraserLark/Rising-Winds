@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Q_Face_Excited.png-d61200a1d18468f7094e74f08b679d9b.stex"
+path="res://.import/Q_Face_Sad.png-40f8f39dca986513eabe6451421e1f6b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Character/Quentin/Q_Face_Excited.png"
-dest_files=[ "res://.import/Q_Face_Excited.png-d61200a1d18468f7094e74f08b679d9b.stex" ]
+source_file="res://Characters/Quentin/Art_Q/Q_Face_Sad.png"
+dest_files=[ "res://.import/Q_Face_Sad.png-40f8f39dca986513eabe6451421e1f6b.stex" ]
 
 [params]
 

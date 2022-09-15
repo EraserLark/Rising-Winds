@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Leo_Pose_Idle.png-44a49af25c88a4eb0a78edea68699c9b.stex"
+path="res://.import/Leo_AnchorPose_Idle.png-6176f5dd6be8a06790501b6d2d94b7a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Character/Leo/Leo_Pose_Idle.png"
-dest_files=[ "res://.import/Leo_Pose_Idle.png-44a49af25c88a4eb0a78edea68699c9b.stex" ]
+source_file="res://Characters/Leo/Art_L/Leo_AnchorPose_Idle.png"
+dest_files=[ "res://.import/Leo_AnchorPose_Idle.png-6176f5dd6be8a06790501b6d2d94b7a7.stex" ]
 
 [params]
 

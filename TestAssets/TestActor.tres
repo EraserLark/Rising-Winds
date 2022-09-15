@@ -1,23 +1,23 @@
 [gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://TestAssets/TestFacesData.gd" type="Script" id=1]
-[ext_resource path="res://Art/Character/Quentin/Q_Face_Excited.png" type="Texture" id=2]
-[ext_resource path="res://Art/Character/Quentin/Q_Face_Happy.png" type="Texture" id=3]
-[ext_resource path="res://Art/Character/Quentin/Q_Face_Sad.png" type="Texture" id=4]
-[ext_resource path="res://Art/Character/Quentin/Q_Face_Angry.png" type="Texture" id=5]
-[ext_resource path="res://Art/Q_Pose_Idle.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Happy.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Pose_Idle.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Sad.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Excited.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Angry.png" type="Texture" id=6]
 
 [resource]
 script = ExtResource( 1 )
 characterName = "Arnold"
 charFaces = {
-"Angry": ExtResource( 5 ),
-"Happy": ExtResource( 2 ),
-"Normal": ExtResource( 3 ),
+"Angry": ExtResource( 6 ),
+"Happy": ExtResource( 5 ),
+"Normal": ExtResource( 2 ),
 "Sad": ExtResource( 4 )
 }
 charPoses = {
-"Idle": ExtResource( 6 )
+"Idle": ExtResource( 3 )
 }
 offsetData = {
 }

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Leo_Face_Sad.png-9134f908dbdc12c971a769b4878cb633.stex"
+path="res://.import/Q_AnchorFace_Happy.png-9ae992881a9f72a21e11074d58be42c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Character/Leo/Leo_Face_Sad.png"
-dest_files=[ "res://.import/Leo_Face_Sad.png-9134f908dbdc12c971a769b4878cb633.stex" ]
+source_file="res://Characters/Quentin/Art_Q/Q_AnchorFace_Happy.png"
+dest_files=[ "res://.import/Q_AnchorFace_Happy.png-9ae992881a9f72a21e11074d58be42c9.stex" ]
 
 [params]
 
