@@ -11,6 +11,12 @@ func playAnimation(animation):
 	runningPlayer = self
 #	spaceSpeed = false
 
+func determineAnimType(actor, animName):
+	if animName[0] == "_":
+		actorAnimation(actor, animName)
+	else:
+		self.playAnimation(animName)
+
 func actorAnimation(actor, animName):
 	var actorAnimPlayer = actor.get_node("AnimationPlayer")
 	actorAnimPlayer.connect("animation_finished", self, "_on_animation_finished")

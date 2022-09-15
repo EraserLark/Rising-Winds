@@ -80,7 +80,8 @@ func nextLine(typeDict):
 		#ANIMATION - ConcurrentAnim
 		if dict["Anim"] != null:
 			#animPlayer.playAnimation(dict["Anim"])
-			animPlayer.actorAnimation(actor, dict["Anim"])
+#			animPlayer.actorAnimation(actor, dict["Anim"])
+			animPlayer.determineAnimType(actor, dict["Anim"])
 #			actor.playAnimation(dict["Anim"])
 		#DIALOGUE
 		novInterface.changeName(dict["Name"])

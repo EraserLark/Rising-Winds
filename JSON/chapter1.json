@@ -8,11 +8,11 @@
 	},
     
     "route1" : [
-        {"D": {"Actor": 0, "Name": "Quentin", 	"Face": "Happy",    "Pose":"Idle",	    "Dialogue": "<S9>..<P5>.<S1>Howdy Leo!", "Anim": "Spin"}},
-        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Normal",   "Pose":"Idle",	"Dialogue": "Hey Quentin", "Anim": "Spin"}},
+        {"D": {"Actor": 0, "Name": "Quentin", 	"Face": "Happy",    "Pose":"Idle",	    "Dialogue": "<S9>..<P5>.<S1>Howdy Leo!", "Anim": "_Spin"}},
+        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Normal",   "Pose":"Idle",	"Dialogue": "Hey Quentin", "Anim": "_Spin"}},
         {"SA": {"Actor": 0, "Anim": "Spin"}},
         {"D": {"Actor": 0, "Name": "Quentin",	"Face": "Normal",   "Pose":"Idle",	"Dialogue": "What's it like sneezing fire all the time?", "Anim": null}},
-        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Sad", 	    "Pose":"Idle",  "Dialogue": "<S9>Wonderful.", "Anim": "Spin" }},
+        {"D": {"Actor": 1, "Name": "Leo", 	    "Face": "Sad", 	    "Pose":"Idle",  "Dialogue": "<S9>Wonderful.", "Anim": "_Spin" }},
         {"I": {"Type": "res://Interfaces/Intf_Button.tscn", "Data": "choiceDict"}}
     ],
 
