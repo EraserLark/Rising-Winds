@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource( 1 )
-characterName = "Arnold"
+characterName = "Quentin Zephyr"
 charFaces = {
 "Angry": ExtResource( 6 ),
 "Happy": ExtResource( 5 ),

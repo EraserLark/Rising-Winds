@@ -72,25 +72,23 @@ func nextLine(typeDict):
 	if "D" in typeDict:
 		currentState = StageState.DIALOGUE
 		var dict = typeDict["D"]
-		#ACTOR
-		var actor = cast.actorArray[dict["Actor"]]
+		#- - - - ACTOR - - - -
+#		var actor = cast.actorArray[dict["Actor"]]
+		var actor = cast.castList[dict["Actor"]]
 		actor.expFace = dict["Face"]
 		if dict.has("Pose"):
 			actor.expPose = dict["Pose"]
-#		actor.changeFace(dict["Face"])
-#		actor.changePose(dict["Pose"])
-		#ANIMATION - ConcurrentAnim
+		#- - - - ANIMATION - ConcurrentAnim - - - -
 		if dict.has("Anim"):
-#		if dict["Anim"] != null:
 			animPlayer.determineAnimType(actor, dict["Anim"])
-		#DIALOGUE
-		novInterface.changeName(dict["Name"])
+		#- - - - DIALOGUE - - - -
+		novInterface.changeName(actor.actorName)
 		novInterface.typeText(dict["Dialogue"])
-	#SoloAnim
+	#SoloAnimation
 	elif "SA" in typeDict:
 		currentState = StageState.SOLOANIM
 		var dict = typeDict["SA"]
-		var actor = cast.actorArray[dict["Actor"]]
+#		var actor = cast.actorArray[dict["Actor"]]
 		#Can instead do 'determineAnimType()' here, in case a soloAnim uses only an Actor's animation?
 		animPlayer.playAnimation(dict["Anim"])
 		novInterface.showTextbox(false)
