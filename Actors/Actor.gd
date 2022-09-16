@@ -8,22 +8,22 @@ onready var animPlayer = $AnimationPlayer
 var actorName : String
 export(Resource) var actorInfo
 export(bool) var flipped setget change_flipped
-export(String) var startFace
+export(String) var expFace setget changeFace
+export(String) var expPose setget changePose
 
 func _ready():
 	actorName = actorInfo.characterName
-	if startFace:
-		changeFace(startFace)
-#		changePose(startFace)
+#	changeFace(startFace)
+#	changePose(startPose)
+
+func changeFace(faceName):
+	var newFace : Texture = actorInfo.charFaces[faceName]
+	faceSpr.set_texture(newFace)
 
 func changePose(poseName):
 	var newPose : Texture = actorInfo.charPoses[poseName]
 	bodySpr.set_texture(newPose)
 	#bodySpr.position = actorInfo.offsetData[poseName]
-
-func changeFace(faceName):
-	var newFace : Texture = actorInfo.charFaces[faceName]
-	faceSpr.set_texture(newFace)
 
 func playAnimation(anim):
 	animPlayer.play(anim)
