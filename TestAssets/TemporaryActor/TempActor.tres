@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://TestAssets/TestFacesData.gd" type="Script" id=1]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Face_Angry.png" type="Texture" id=2]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Face_Happy.png" type="Texture" id=3]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Face_Normal.png" type="Texture" id=4]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Pose_Idle.png" type="Texture" id=5]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Face_Sad.png" type="Texture" id=6]
+
+[resource]
+script = ExtResource( 1 )
+characterName = "Mr. Loudknock"
+charFaces = {
+"Angry": ExtResource( 2 ),
+"Happy": ExtResource( 3 ),
+"Normal": ExtResource( 4 ),
+"Sad": ExtResource( 6 )
+}
+charPoses = {
+"Idle": ExtResource( 5 )
+}
+offsetData = {
+}

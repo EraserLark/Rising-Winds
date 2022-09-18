@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Actors/Actor.gd" type="Script" id=1]
-[ext_resource path="res://Characters/Quentin/Art_Q/Q_Pose_Idle.png" type="Texture" id=2]
-[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Happy.png" type="Texture" id=3]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Pose_Idle.png" type="Texture" id=2]
+[ext_resource path="res://TestAssets/TemporaryActor/TempAct_Face_Normal.png" type="Texture" id=3]
+[ext_resource path="res://TestAssets/TemporaryActor/TempActor.tres" type="Resource" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveIn"
@@ -76,9 +77,13 @@ tracks/0/keys = {
 
 [node name="Actor" type="Node2D"]
 script = ExtResource( 1 )
+actorInfo = ExtResource( 4 )
 
 [node name="BodyPoint" type="Node2D" parent="."]
-position = Vector2( 4, -96 )
+position = Vector2( 0, -112 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BodySprite" type="Sprite" parent="BodyPoint"]
 scale = Vector2( 0.1, 0.1 )
@@ -88,7 +93,7 @@ __meta__ = {
 }
 
 [node name="FacePoint" type="Node2D" parent="BodyPoint"]
-position = Vector2( -6.8, -52.35 )
+position = Vector2( 0, -72 )
 __meta__ = {
 "_edit_lock_": true
 }
