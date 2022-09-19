@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Actors/Actor.gd" type="Script" id=1]
 [ext_resource path="res://TestAssets/TemporaryActor/TempAct_Pose_Idle.png" type="Texture" id=2]
@@ -75,6 +75,33 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1 ), Vector2( -1, 1 ), Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "_TurnLeft"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1e-05, 2 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flipped")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "_TurnRight"
 tracks/0/type = "value"
@@ -84,10 +111,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( -2, 2 ) ]
+"values": [ Vector2( 2, 2 ), Vector2( 1e-05, 2 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flipped")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="Actor" type="Node2D"]
@@ -125,4 +164,5 @@ __meta__ = {
 anims/MoveIn = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/_Spin = SubResource( 3 )
+anims/_TurnLeft = SubResource( 5 )
 anims/_TurnRight = SubResource( 4 )

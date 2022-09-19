@@ -77,28 +77,42 @@ tracks/0/keys = {
 "values": [ Vector2( 2, 2 ), Vector2( 0, 2 ), Vector2( 2, 2 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Cast/Actor_Leo:flipped")
+tracks/1/path = NodePath("Cast/Actor_Leo:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Cast/Actor_Leo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 300, 624 ), Vector2( 300, 600 ), Vector2( 300, 624 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Cast/Actor_Leo")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "change_flipped"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cast/Actor_Leo:flipped")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -115,17 +129,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1136, 624 ), Vector2( 872, 624 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Cast/Actor_Quentin:flipped")
+tracks/1/type = "method"
+tracks/1/path = NodePath("Cast/Actor_Quentin")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "change_flipped"
+} ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -157,17 +173,15 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 872, 624 ), Vector2( 150, 624 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Cast/Actor_Leo:scale")
+tracks/1/type = "animation"
+tracks/1/path = NodePath("Cast/Actor_Leo/AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( -2, 2 ) ]
+"clips": PoolStringArray( "_TurnLeft" ),
+"times": PoolRealArray( 0 )
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Cast/Actor_Leo:position")
@@ -300,7 +314,6 @@ flipped = true
 
 [node name="Actor_Leo" parent="Cast" instance=ExtResource( 3 )]
 position = Vector2( -288, 624 )
-flipped = true
 
 [node name="Actor_Knock" parent="Cast" instance=ExtResource( 2 )]
 position = Vector2( 872, 624 )
@@ -336,3 +349,5 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [connection signal="animation_finished" from="NovelAnimPlayer" to="NovelAnimPlayer" method="_on_animation_finished"]
+
+[editable path="Cast/Actor_Leo"]
