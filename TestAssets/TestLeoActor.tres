@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://TestAssets/TestFacesData.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Leo/Art_L/Leo_Face_Happy.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Characters/Leo/Art_L/Leo_Face_Angry.png" type="Texture" id=4]
 [ext_resource path="res://Characters/Leo/Art_L/Leo_Face_Sad.png" type="Texture" id=5]
 [ext_resource path="res://Characters/Leo/Art_L/Leo_Pose_Idle.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Leo/Art_L/Leo_Face_Scared.png" type="Texture" id=7]
 
 [resource]
 script = ExtResource( 1 )
@@ -14,7 +15,8 @@ charFaces = {
 "Angry": ExtResource( 4 ),
 "Happy": ExtResource( 2 ),
 "Normal": ExtResource( 3 ),
-"Sad": ExtResource( 5 )
+"Sad": ExtResource( 5 ),
+"Scared": ExtResource( 7 )
 }
 charPoses = {
 "Idle": ExtResource( 6 )

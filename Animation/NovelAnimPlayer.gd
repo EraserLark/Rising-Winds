@@ -2,7 +2,7 @@ extends AnimationPlayer
 
 #var spaceSpeed = false
 var animSpeed = 1
-var runningPlayer	#Stores running animation player, whether self or in an actor
+onready var runningPlayer = self	#Stores running animation player, whether self or in an actor
 
 signal animFinished()
 

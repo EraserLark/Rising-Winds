@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UpperSystems/OverarchSystems.gd" type="Script" id=1]
 [ext_resource path="res://UpperSystems/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://Audio/Music/ROUGH_Mysterious_1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Music/ROUGH_Mellow_Happy_1.mp3" type="AudioStream" id=3]
 
 [node name="OverarchSystems" type="Node"]
 script = ExtResource( 1 )
@@ -41,7 +41,7 @@ text = "OPTIONS"
 anchor_right = 1.0
 margin_top = 64.0
 margin_bottom = 78.0
-text = "Rising Winds"
+text = "Rising Winds - Export 1"
 align = 1
 uppercase = true
 

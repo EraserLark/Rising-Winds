@@ -2,11 +2,118 @@
 	"chapterStart": {
 		"startingCast": [
 			{"CastSlot": 0, "Actor": "Que", "Position": "Vector2 (184, 624)", "Face":"Happy", "Pose":"Idle",  "Info": "res://TestAssets/TestActor.tres"},
-            {"CastSlot": 1, "Actor": "Leo", "Position": "Vector2 (872, 624)", "Face":"Sad",   "Pose":"Idle",  "Info": "res://TestAssets/TestLeoActor.tres"}
+            {"CastSlot": 1, "Actor": "Leo", "Position": "Vector2 (-200, 624)", "Face":"Sad",   "Pose":"Idle",  "Info": "res://TestAssets/TestLeoActor.tres"},
+            {"CastSlot": 2, "Actor": "Kno", "Position": "Vector2 (1172, 624)", "Face":"Normal","Pose":"Idle",  "Info": "res://TestAssets/TemporaryActor/TempActor.tres"},
+            {"CastSlot": 3, "Actor": "Nar", "Position": "Vector2 (1172, 624)", "Face":"Normal","Pose":"Idle",  "Info": "res://TestAssets/TemporaryActor/TempActor.tres"}
 		],
-		"startingRoute": "route1"
+		"startingRoute": "startRoute"
 	},
     
+    "startRoute" : [
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "((I forgot to add functionality to change backgrounds so y'all are going to have to use your imaginations for this build.))"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: One night, as Quentin sleeps peacefully...BOOM! A loud explosion suddenly occurs outisde!"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: Quentin jolts upright in bed."}},
+
+        {"D": {"Actor": "Que",      "Face": "Scared",        "Pose":"Idle",
+        "Dialogue": "Woah!"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: Quentin peers out his window. There’s a dull, orange glow coming from the front yard with a large plume of smoke above it."}},
+
+        {"D": {"Actor": "Que",      "Face": "Sad",        "Pose":"Idle",
+        "Dialogue": "What the heck?"}},
+
+            {"SA": {"Actor": 2, "Anim": "Knock_Enter"}},
+
+        {"D": {"Actor": "Kno", "Face":"Normal",
+        "Dialogue": "Quentin. Are you alright?"}},
+
+        {"D": {"Actor": "Que",      "Face": "Sad",        "Pose":"Idle",
+        "Dialogue": "Yeah. What happened?"}},
+
+        {"D": {"Actor": "Kno", "Face":"Normal", "Anim": "_TurnRight",
+        "Dialogue": "<S9>..."}},
+
+        {"D": {"Actor": "Kno", "Face":"Normal", "Anim": "Knock_Exit",
+        "Dialogue": "Stay here."}},
+
+        {"D": {"Actor": "Que",      "Face": "Angry",        "Pose":"Idle",
+        "Dialogue": "Wait--! Ugh."}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: Quentin turns and looks out the window again. Glancing back at the door, Quentin opens the window and climbs outside."}},
+
+            {"SA": {"Actor": 0, "Anim": "Quentin_LeaveLeft"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: Quentin makes his way across the roof, towards the smoke. He finds Leo there, in shock."}},
+
+        {"D": {"Actor": "Leo", "Face":"Scared", "Anim": "Leo_EnterLeft",
+        "Dialogue": "<S9>..."}},
+
+            {"SA": {"Actor": 0, "Anim": "Quentin_EnterRight"}},
+        
+        {"D": {"Actor": "Que",      "Face": "Normal",        "Pose":"Idle",
+        "Dialogue": "Psst. Leo!"}},
+
+        {"D": {"Actor": "Leo", "Face":"Scared", "Anim": "Leo_JumpTurn",
+        "Dialogue": "!!"}},
+
+        {"D": {"Actor": "Leo", "Face":"Sad",
+        "Dialogue": "Quentin! What are you doing?"}},
+
+        {"D": {"Actor": "Que", "Face":"Angry",
+        "Dialogue": "Shh! I came to see what's going on!"}},
+
+            {"SA": {"Actor": 0, "Anim": "Quentin_ScootLeft"}},
+        
+        {"D": {"Actor": "Que", "Face":"Scared",
+        "Dialogue": "What is that?!"}},
+
+        {"D": {"Actor": "Leo", "Face":"Sad",
+        "Dialogue": "I have no idea."}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: A CHUNK OF METEOR, shrouded in smoke, sits in a crater near the house. It still glows hot from the atmosphere."}},
+
+        {"D": {"Actor": "Que", "Face":"Scared",
+        "Dialogue": "A meteor...?"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: A figure works its way towards the meteor, down in the yard."}},
+
+        {"D": {"Actor": "Leo", "Face":"Scared",
+        "Dialogue": "What's that?!"}},
+
+        {"D": {"Actor": "Que", "Face":"Normal",
+        "Dialogue": "(Squinting) That's just Knock. Who else would it be?"}},
+
+        {"D": {"Actor": "Leo", "Face":"Sad",
+        "Dialogue": "<S5>..."}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: The two watch Mr. Loudknock down in the yard intently. Mr. Loudknock holds up his lantern and illuminates the crater. It's full of smoke."}},
+
+        {"D": {"Actor": "Que", "Face":"Happy",
+        "Dialogue": "You think school will be cancelled tomorrow?"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "Narrator: What does this mysterious meteor mean? And will school get canceled?? Find out next week in the next build of Rising Winds!"}},
+
+        {"D": {"Actor": "Nar", "Face":"Normal",
+        "Dialogue": "((You can close the game now. I don't have a function to stop running in this state yet.))"}}
+    ],
+
+
+
+
+
+
     "route1" : [
         {"D": {"Actor": "Que",      "Face": "Happy",        "Pose":"Idle",      "Anim": "_Spin",
         "Dialogue": "<S9>..<P3>.<S1>Howdy Leo!"}},
