@@ -166,3 +166,5 @@ anims/RESET = SubResource( 2 )
 anims/_Spin = SubResource( 3 )
 anims/_TurnLeft = SubResource( 5 )
 anims/_TurnRight = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]

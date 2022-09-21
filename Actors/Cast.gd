@@ -12,9 +12,8 @@ func updateCast(castDict):
 
 func updateActor(castDict):
 	var targetActor = get_child(castDict["CastSlot"])
-	targetActor.expFace = castDict["Face"]
-	targetActor.expPose = castDict["Pose"]
-	#targetActor.name = castDict["Name"]
+	targetActor.exprFace = castDict["Face"]
+	targetActor.exprPose = castDict["Pose"]
 	targetActor.actorInfo = load(castDict["Info"])
 	targetActor.position = (str2var(castDict["Position"]))	#Vector2
 	

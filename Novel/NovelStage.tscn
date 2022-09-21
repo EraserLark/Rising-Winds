@@ -292,6 +292,10 @@ length = 2.0
 
 [node name="NovelStage" type="Node"]
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 624.0 ],
+"_edit_vertical_guides_": [ 184.0, 872.0 ]
+}
 jsonDialogue = "res://JSON/chapter1.json"
 
 [node name="TestBG" type="Sprite" parent="."]

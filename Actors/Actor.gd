@@ -6,28 +6,26 @@ onready var bodyPt = $BodyPoint
 onready var faceSpr = $BodyPoint/FacePoint/FaceSprite
 onready var bodySpr = $BodyPoint/BodySprite
 onready var animPlayer = $AnimationPlayer
+onready var tween = $Tween
 
 var actorName : String
 export(Resource) var actorInfo
 export(bool) var flipped setget change_flipped
 export(bool) var testBool
-export(String) var expFace setget changeFace
-export(String) var expPose setget changePose
+export(String) var exprFace setget changeFace
+export(String) var exprPose setget changePose
 
 func _ready():
 	actorName = actorInfo.characterName
-#	changeFace(startFace)
-#	changePose(startPose)
+	slideToPos(Vector2(300,300))
 
 func changeFace(faceName):
 	var newFace : Texture = actorInfo.charFaces[faceName]
 	faceSpr.set_texture(newFace)
-	pass
 
 func changePose(poseName):
 	var newPose : Texture = actorInfo.charPoses[poseName]
 	bodySpr.set_texture(newPose)
-	pass
 
 func playAnimation(anim):
 	animPlayer.play(anim)
@@ -56,3 +54,8 @@ func change_flipped(case):
 	bodyPt.position = Vector2((currentPos.x * flipNum), currentPos.y)
 	
 	flipped = case
+
+func slideToPos(newPos : Vector2):
+	var currentPos = self.position
+	tween.interpolate_property(self, "position", currentPos, newPos, 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()

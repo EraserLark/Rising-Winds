@@ -6,6 +6,7 @@
 [ext_resource path="res://TestAssets/TestLeoActor.tres" type="Resource" id=4]
 
 [node name="Actor_Leo" instance=ExtResource( 1 )]
+position = Vector2( 300, 300 )
 actorInfo = ExtResource( 4 )
 
 [node name="BodyPoint" parent="." index="0"]

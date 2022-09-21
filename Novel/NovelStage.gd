@@ -27,12 +27,10 @@ func _ready():
 	cast.updateCast(startingCast)
 	routeStart(chData, startingRoute)
 
-#Alternate way for inputs??
 func _input(event):
 	match currentState:
 		StageState.NEXTLINE:
 			if event.is_action_pressed("ui_accept"):
-				#Play confirm SFX
 				advance()
 		StageState.DIALOGUE:
 			novInterface.dialogueInput(event)
@@ -75,9 +73,9 @@ func nextLine(typeDict):
 		#- - - - ACTOR - - - -
 #		var actor = cast.actorArray[dict["Actor"]]
 		var actor = cast.castList[dict["Actor"]]
-		actor.expFace = dict["Face"]
+		actor.exprFace = dict["Face"]
 		if dict.has("Pose"):
-			actor.expPose = dict["Pose"]
+			actor.exprPose = dict["Pose"]
 		#- - - - ANIMATION - ConcurrentAnim - - - -
 		if dict.has("Anim"):
 			animPlayer.determineAnimType(actor, dict["Anim"])
