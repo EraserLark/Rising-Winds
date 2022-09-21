@@ -17,7 +17,9 @@ export(String) var exprPose setget changePose
 
 func _ready():
 	actorName = actorInfo.characterName
-	slideToPos(Vector2(300,300))
+	#Test tweening
+	if Engine.editor_hint == false:
+		slideToPos(Vector2(300,300))
 
 func changeFace(faceName):
 	var newFace : Texture = actorInfo.charFaces[faceName]
