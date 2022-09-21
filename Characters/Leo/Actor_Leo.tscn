@@ -7,18 +7,15 @@
 
 [node name="Actor_Leo" instance=ExtResource( 1 )]
 actorInfo = ExtResource( 4 )
-flipped = true
 
 [node name="BodyPoint" parent="." index="0"]
-position = Vector2( 10, -86 )
+position = Vector2( -10, -86 )
 
 [node name="BodySprite" parent="BodyPoint" index="0"]
 texture = ExtResource( 2 )
-flip_h = true
 
 [node name="FacePoint" parent="BodyPoint" index="1"]
-position = Vector2( -65.05, -69.2 )
+position = Vector2( 65.05, -69.2 )
 
 [node name="FaceSprite" parent="BodyPoint/FacePoint" index="0"]
 texture = ExtResource( 3 )
-flip_h = true

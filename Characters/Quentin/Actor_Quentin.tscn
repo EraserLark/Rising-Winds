@@ -2,7 +2,7 @@
 
 [ext_resource path="res://TestAssets/TestActor.tres" type="Resource" id=1]
 [ext_resource path="res://Actors/Actor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Characters/Quentin/Art_Q/Q_AnchorFace_Happy.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Quentin/Art_Q/Q_Face_Happy.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Quentin/Art_Q/Q_AnchorPose_Idle.png" type="Texture" id=4]
 
 [node name="Actor_Quentin" instance=ExtResource( 2 )]

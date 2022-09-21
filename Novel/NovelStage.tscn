@@ -314,6 +314,7 @@ flipped = true
 
 [node name="Actor_Leo" parent="Cast" instance=ExtResource( 3 )]
 position = Vector2( -288, 624 )
+flipped = true
 
 [node name="Actor_Knock" parent="Cast" instance=ExtResource( 2 )]
 position = Vector2( 872, 624 )
@@ -349,5 +350,3 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [connection signal="animation_finished" from="NovelAnimPlayer" to="NovelAnimPlayer" method="_on_animation_finished"]
-
-[editable path="Cast/Actor_Leo"]

@@ -33,19 +33,20 @@ func playAnimation(anim):
 	animPlayer.play(anim)
 
 func change_flipped(case):
-	print(var2str(case) + self.name)
+	if flipped == case:
+		return
 	
-	bodySpr = get_node("BodyPoint/BodySprite")
-	faceSpr = get_node("BodyPoint/FacePoint/FaceSprite")
-	bodyPt = get_node("BodyPoint")
-	facePt = get_node("BodyPoint/FacePoint")
+	if bodySpr == null:
+		bodySpr = get_node("BodyPoint/BodySprite")
+		faceSpr = get_node("BodyPoint/FacePoint/FaceSprite")
+		bodyPt = get_node("BodyPoint")
+		facePt = get_node("BodyPoint/FacePoint")
+	
+	var flipNum = -1
+	print(var2str(case) + self.name)
 	
 	bodySpr.flip_h = case
 	faceSpr.flip_h = case
-	
-	var flipNum = -1
-	if flipped == case:
-		flipNum = 1
 	
 	var currentPos
 	currentPos = facePt.position
@@ -55,15 +56,3 @@ func change_flipped(case):
 	bodyPt.position = Vector2((currentPos.x * flipNum), currentPos.y)
 	
 	flipped = case
-	
-#	if bodySpr == null:
-	
-#	if case == true:
-
-#	elif case == false:
-#		var currentPos
-#		currentPos = facePt.position
-#		facePt.position = Vector2(abs(currentPos.x), currentPos.y)
-#
-#		currentPos = bodyPt.position
-#		bodyPt.position = Vector2(abs(currentPos.x), currentPos.y)
